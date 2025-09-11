@@ -3,7 +3,7 @@ import PeliculaDetalle from "../../components/PeliculaDetalle/PeliculaDetalle";
 
 function Pelicula(props) {
     const id=props.match.params.id
-    const coincidencia= data.filter((personaje)=> personaje.id == id)
+    const coincidencia= props.pelicula.filter((personaje)=> personaje.id == id)
     const personaje=coincidencia[0];
     return(
     <React.Fragment>
