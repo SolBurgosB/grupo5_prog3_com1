@@ -24,7 +24,6 @@ return (
         <button onClick={() => this.seleccionar()} className="more">{this.state.textoBoton}</button>
         {this.state.verMas ? <p>{this.state.dataPeliculas.overview}</p>: <p></p>}
         <Link to={`/peliculas/${this.state.dataPeliculas.id}`}><button>Ver detalle</button></Link>
-
     </div>
 )}};
 
