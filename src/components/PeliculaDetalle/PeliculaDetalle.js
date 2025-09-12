@@ -1,12 +1,11 @@
 import React, {Component} from "react";
-import "./styles.css"
 import { Link } from "react-router-dom";
 
 class PeliculaDetalle extends Component{
   constructor(props){
     super(props)
     this.state={
-      dataPelicula: props.peliculas,
+      dataPeliculas: props.peliculas,
     }
   }
   render(){
@@ -17,8 +16,6 @@ class PeliculaDetalle extends Component{
                   <p>{this.state.dataPeliculas.popularity}</p>
                   <p>{this.state.dataPeliculas.release_date}</p>
                   <p>{this.state.dataPeliculas.overview}</p>
-                  <p>{this.state.dataPeliculas.duration}</p>
-                  <p>{this.state.dataPeliculas.genres}</p>
                   <p>{this.state.dataPeliculas.runtime}</p>
               </div>
           )
