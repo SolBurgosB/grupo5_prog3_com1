@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import "./styles.css"
+import Formulario from '../Formulario/Formulario'
 
 function Header() {
     return (
@@ -18,6 +19,7 @@ function Header() {
                 <li className="nav-item">
                     <Link to={`/favoritos`}><p className="nav-link">Favoritas</p></Link>
                 </li>
+                <Formulario filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)}/>
             </ul>
         </nav>
     )
