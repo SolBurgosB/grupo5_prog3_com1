@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import Pelicula from "../../components/Pelicula/Pelicula";
+import TodasPeliculas from "../../components/TodasPeliculas/TodasPeliculas";
+import Filtro from "../../components/Filtro/Filtro";
 
 class Peliculas extends Component{
     constructor(props){
@@ -7,28 +8,41 @@ class Peliculas extends Component{
         this.state={
             peliculas: [],
             pedidoInicialCompleto: false,
+            pagina: 1,
+            backup:[],
+            busqueda:"",
         }
     }
     componentDidMount(){
-        fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=9b992146006f315e9afbc6413f499b4e')
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=9b992146006f315e9afbc6413f499b4e`)
         .then((res)=>res.json())
         .then((peliculas)=>{console.log(peliculas);
-            this.setState({peliculas: peliculas.results, pedidoInicialCompleto: true})
-        })
+            this.setState({peliculas: peliculas.results, pedidoInicialCompleto: true, pagina: this.state.pagina +1, backup: peliculas.results})
+        }) 
         .catch((error)=>console.log(error))
-       
+        
     }
-    
+    cargarMas(){
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=9b992146006f315e9afbc6413f499b4e&page=${this.state.pagina}`)
+        .then(res=>res.json())
+        .then((peliculas)=>this.setState({peliculas: this.state.peliculas.concat(peliculas.results), pagina: this.state.pagina+1}))
+        .catch((error)=>console.log(error))
+    }
+    filtrarPeliculas(texto){
+        const filtrado=this.state.backup.filter((elm)=>elm.title.toLowerCase().includes(texto.toLowerCase()))
+        this.setState({peliculas: filtrado})
+    }
     render(){
         return(
-            <div>
-                <h1>Próximamente</h1>
-                {this.state.pedidoInicialCompleto ?
+            <div> 
+                <h1>Peliculas</h1>
+                <Filtro filtrarPeliculas={(texto)=>this.filtrarPeliculas(texto)} />
+                {this.state.pedidoInicialCompleto ? 
                 <div>
-                    <Pelicula peliculas={this.state.peliculas}/>
+                    <TodasPeliculas peliculas={this.state.peliculas}/> 
+                    <button onClick={()=>this.cargarMas()}>Cargar más</button>
                 </div>
-                : 
-                <h2>Cargando...</h2>}
+                : <h2>Cargando...</h2>}
             </div>
         )
     }

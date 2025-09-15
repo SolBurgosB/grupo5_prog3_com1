@@ -9,8 +9,8 @@ function App() {
     <React.Fragment>
       <Switch>
         <Route path="/" component={Home} exact={true} />
-        <Route path="/peliculas" component={Peliculas} />
         <Route path="/peliculas/:id" component={Pelicula} />
+        <Route path="/peliculas" component={Peliculas}/>
       </Switch>
     </React.Fragment>    
   );
