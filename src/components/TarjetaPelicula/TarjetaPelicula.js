@@ -19,13 +19,7 @@ class TarjetaPelicula extends Component {
     favorito(id) {
         let peliculaTraida = localStorage.getItem("fav");
         let favorito = JSON.parse(peliculaTraida);
-
-        if (!favorito) {
-            favorito = [];
-        }
-
         favorito.push(id);
-
         let peliculasToString = JSON.stringify(favorito);
         localStorage.setItem("fav", peliculasToString);
 
@@ -51,9 +45,9 @@ class TarjetaPelicula extends Component {
                 <Link to={`/peliculas/${this.state.dataPeliculas.id}`}><button>Ver detalle</button></Link>
                 {
                     this.state.seleccionado ?
-                        <button onClick={() => this.sacarFavorito(this.state.dataPeliculas.id)}>Sacar Favorito</button>
+                        <button onClick={() => this.sacarFavorito(this.state.dataPeliculas.id)}>Sacar Favorito ★</button>
                         :
-                        <button onClick={() => this.favorito(this.state.dataPeliculas.id)}>Favorito</button>
+                        <button onClick={() => this.favorito(this.state.dataPeliculas.id)}>Favorito ☆</button>
                 }
             </div>
         )
