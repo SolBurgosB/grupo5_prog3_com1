@@ -4,10 +4,12 @@ import Pelicula from "./screens/Pelicula/Pelicula";
 import Peliculas from "./screens/Peliculas/Peliculas";
 import { Switch, Route } from "react-router-dom";
 import Favoritos from "./screens/PeliculasFav/PeliculasFav";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <React.Fragment>
+      <Header/>
       <Switch>
         <Route path="/" component={Home} exact={true} />
         <Route path="/peliculas/:id" component={Pelicula} />
