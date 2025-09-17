@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import Favoritos from "./screens/PeliculasFav/PeliculasFav";
 import Header from "./components/Header/Header";
 import Resultados from "./screens/Resultados/Resultados";
+import Error404 from "./components/Error404/Error404";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/peliculas" component={Peliculas}/>
         <Route path="/favoritos" component={Favoritos}/>
         <Route path="/resultados/:busqueda" component={Resultados}/>
+        <Route component={Error404} />
       </Switch>
     </React.Fragment>    
   );
