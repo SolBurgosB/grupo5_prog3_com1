@@ -27,9 +27,11 @@ class Formulario extends Component {
 
     render() {
         return (
-            <form onSubmit={(evento) => this.controlarForm(evento)}>
+            <form className="search-form" action="/resultados" method="get"onSubmit={(evento) => this.controlarForm(evento)}>
                 <input 
                     type="text" 
+                    value=""
+                    name="searchData"
                     onChange={(evento) => this.controlarInput(evento)} 
                     placeholder="Buscar..." 
                 />
@@ -53,7 +55,7 @@ class Formulario extends Component {
                         Series
                     </label>
                 </div>
-                <button>Buscar</button>
+                <button type="submit" class="btn btn-success btn-sm">Buscar</button>
             </form>
         )
     }

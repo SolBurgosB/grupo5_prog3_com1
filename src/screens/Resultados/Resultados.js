@@ -39,12 +39,9 @@ class Resultados extends Component {
         return (
 
             <div>
-                <h2>
-                    Resultados de: {this.props.match.params.busqueda}
-                </h2>
                 {this.tipo === "series" 
-                  ? <TodasSeries series={this.state.resultados}/> 
-                  : <TodasPeliculas peliculas={this.state.resultados}/>
+                  ? <div><h2>Resultados de la serie: {this.props.match.params.busqueda}</h2><TodasSeries series={this.state.resultados}/></div>
+                  : <div><h2>Resultados de la pelicula: {this.props.match.params.busqueda}</h2><TodasPeliculas peliculas={this.state.resultados}/></div>
                 }
             </div>
         )
