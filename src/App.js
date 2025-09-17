@@ -21,7 +21,7 @@ function App() {
          <Route path="/series/:id" component={Serie}/>
          <Route path="/series" component={Series}/>
         <Route path="/favoritos" component={Favoritos}/>
-        <Route path="/resultados/:busqueda" component={Resultados}/>
+        <Route path="/resultados/:busqueda/:tipo" component={Resultados}/>
         <Route component={Error404} />
       </Switch>
     </React.Fragment>    

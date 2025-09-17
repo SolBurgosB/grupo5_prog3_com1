@@ -13,7 +13,7 @@ class Filtro extends Component{
         evento.preventDefault()
     }
     controlarInput(evento){
-        this.setState({busqueda: evento.target.value}, () => this.props.filtrarPersonajes(this.state.busqueda));
+        this.setState({busqueda: evento.target.value}, () => this.props.filtrarPeliculas(this.state.busqueda));
     }
 
 

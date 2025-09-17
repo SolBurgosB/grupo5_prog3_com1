@@ -28,7 +28,7 @@ class Series extends Component{
         .then((series)=>this.setState({series: this.state.series.concat(series.results), pagina: this.state.pagina+1}))
         .catch((error)=>console.log(error))
     }
-    filtrarSeries(texto){
+    filtrarPeliculas(texto){
         const filtrado=this.state.backup.filter((elm)=>elm.name.toLowerCase().includes(texto.toLowerCase()))
         this.setState({series: filtrado})
     }
@@ -36,7 +36,7 @@ class Series extends Component{
         return(
             <div> 
                 <h1>Series</h1>
-                <Filtro filtrarSeries={(texto)=>this.filtrarSeries(texto)} />
+                <Filtro filtrarPeliculas={(texto)=>this.filtrarPeliculas(texto)} />
                 {this.state.pedidoInicialCompleto ? 
                 <div>
                     <TodasSeries series={this.state.series}/> 
