@@ -18,14 +18,18 @@ class PeliculasHome extends Component{
         .catch((error)=>console.log(error))
        
     }
-    
+
     render(){
+        let cuatropeliculas=[]
+        this.state.peliculas.map((pelicula, i) => i<4 ? cuatropeliculas.push(pelicula) : "" )
+        console.log(cuatropeliculas);
+        
         return(
             <div>
                 <h1>Próximamente</h1>
                 {this.state.pedidoInicialCompleto ?
                 <div>
-                    <HomePeliculas peliculas={this.state.peliculas}/>
+                    <HomePeliculas peliculas={cuatropeliculas}/>
                 </div>
                 : 
                 <h2>Cargando...</h2>}
