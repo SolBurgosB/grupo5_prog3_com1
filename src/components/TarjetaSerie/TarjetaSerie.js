@@ -1,0 +1,58 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+class TarjetaSerie extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            dataSeries: props.series,
+            verMas: false,
+            textoBoton: "Ver Más",
+        }
+    };
+    seleccionar() {
+        this.setState({
+            verMas: !this.state.verMas,
+            textoBoton: this.state.verMas ? "Ver más" : "Ver menos"
+        })
+    };
+    favorito(id) {
+        let serieTraida = localStorage.getItem("favs");
+        let favorito = JSON.parse(serieTraida);
+        favorito.push(id);
+        let seriesToString = JSON.stringify(favorito);
+        localStorage.setItem("favs", seriesToString);
+
+        this.setState({ seleccionado: true });
+    }
+    sacarFavorito(id) {
+        let serieTraida = localStorage.getItem("favs")
+        let favorito = JSON.parse(serieTraida)
+        if (favorito) {
+            let nuevofavorito = favorito.filter((favId) => favId != id)
+            let seriesToString = JSON.stringify(nuevofavorito)
+            localStorage.setItem("favs", seriesToString)
+        }
+        this.setState({ seleccionado: false })
+    }
+    render() {
+        return (
+            <div className=''>
+                <img src={`https://image.tmdb.org/t/p/w342${this.state.dataSeries.poster_path}`} alt={`Imagen de ${this.state.dataSeries.name}`} />
+                <h2> {this.state.dataSeries.name}</h2>
+                <button onClick={() => this.seleccionar()} className="more">{this.state.textoBoton}</button>
+                {this.state.verMas ? <p>{this.state.dataSeries.overview}</p> : <p></p>}
+                <Link to={`/series/${this.state.dataSeries.id}`}><button>Ver detalle</button></Link>
+                {
+                    this.state.seleccionado ?
+                        <button onClick={() => this.sacarFavorito(this.state.dataSeries.id)}>Sacar Favorito ★</button>
+                        :
+                        <button onClick={() => this.favorito(this.state.dataSeries.id)}>Favorito ☆</button>
+                }
+            </div>
+        )
+    }
+};
+
+
+export default TarjetaSerie;
