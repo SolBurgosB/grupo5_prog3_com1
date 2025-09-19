@@ -19,7 +19,7 @@ class Resultados extends Component {
 
         let api = ""
 
-        if (tipo === "series") {
+        if (tipo === "tv") {
             api = `https://api.themoviedb.org/3/search/tv?api_key=9b992146006f315e9afbc6413f499b4e&query=${termino}` //VER &query=
         } else {
             api = `https://api.themoviedb.org/3/search/movie?api_key=9b992146006f315e9afbc6413f499b4e&query=${termino}` //VER &query=
@@ -36,15 +36,21 @@ class Resultados extends Component {
     }
 
     render() {
-        return (
+        const tipo = this.props.match.params.tipo
+        if (this.state.resultados.length === 0) {
+            return <h2>No se encontraron resultados para: {this.props.match.params.busqueda}</h2>
+        }
+        else {
+            return (
+                <div>
+                    {tipo === "tv"
+                        ? <div><h2>Resultados de la serie: {this.props.match.params.busqueda}</h2><TodasSeries series={this.state.resultados} /></div>
+                        : <div><h2>Resultados de la película: {this.props.match.params.busqueda}</h2><TodasPeliculas peliculas={this.state.resultados} /></div>
+                    }
+                </div>
+            )
+        }
 
-            <div>
-                {this.tipo === "series" 
-                  ? <div><h2>Resultados de la serie: {this.props.match.params.busqueda}</h2><TodasSeries series={this.state.resultados}/></div>
-                  : <div><h2>Resultados de la pelicula: {this.props.match.params.busqueda}</h2><TodasPeliculas peliculas={this.state.resultados}/></div>
-                }
-            </div>
-        )
     }
 
 }

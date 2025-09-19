@@ -29,13 +29,13 @@ class Peliculas extends Component{
         .catch((error)=>console.log(error))
     }
     filtrarPeliculas(texto){
-        const filtrado=this.state.backup.filter((elm)=>elm.title.toLowerCase().includes(texto.toLowerCase()))
+        const filtrado=this.state.peliculas.filter((elm)=>elm.title.toLowerCase().includes(texto.toLowerCase()))
         this.setState({peliculas: filtrado})
     }
     render(){
         return(
             <div> 
-                <h1>Peliculas</h1>
+                <h1>Películas</h1>
                 <Filtro filtrarPeliculas={(texto)=>this.filtrarPeliculas(texto)} />
                 {this.state.pedidoInicialCompleto ? 
                 <div>

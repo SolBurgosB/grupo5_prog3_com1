@@ -6,18 +6,13 @@ class Formulario extends Component {
         super(props)
         this.state = {
             busqueda: "",
-            tipoBusqueda: ""
+            tipoBusqueda: "movie" 
         }
     }
 
     controlarForm(evento) {
         evento.preventDefault()
-        if (this.state.tipoBusqueda === "peliculas") {
-            this.props.filtrarPeliculas(this.state.busqueda);
-        } else if (this.state.tipoBusqueda === "series") {
-            this.props.filtrarSeries(this.state.busqueda);
-        }
-        this.props.history.push(`/resultados/${this.state.busqueda}/${this.state.tipoBusqueda}`)
+        this.props.history.push(`/resultados/${this.state.tipoBusqueda}/${this.state.busqueda}`)
     }
 
     controlarInput(evento) {
@@ -32,7 +27,7 @@ class Formulario extends Component {
 
     render() {
         return (
-            <form className="search-form" action="/resultados" method="get" onSubmit={(evento) => this.controlarForm(evento)}>
+            <form className="search-form" method="get" onSubmit={(evento) => this.controlarForm(evento)}>
                 <input
                     type="text"
                     name="searchData"
@@ -44,7 +39,7 @@ class Formulario extends Component {
                         <input
                             type="radio"
                             name="tipo"
-                            value="peliculas"
+                            value="movie"
                             onChange={(evento) => this.controlarRadio(evento)}
                         />
                         Películas
@@ -53,7 +48,7 @@ class Formulario extends Component {
                         <input
                             type="radio"
                             name="tipo"
-                            value="series"
+                            value="tv"
                             onChange={(evento) => this.controlarRadio(evento)}
                         />
                         Series

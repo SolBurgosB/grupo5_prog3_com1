@@ -29,7 +29,7 @@ class Series extends Component{
         .catch((error)=>console.log(error))
     }
     filtrarSeries(texto){
-        const filtrado=this.state.backup.filter((elm)=>elm.name.toLowerCase().includes(texto.toLowerCase()))
+        const filtrado=this.state.series.filter((elm)=>elm.name.toLowerCase().includes(texto.toLowerCase()))
         this.setState({series: filtrado})
     }
     render(){

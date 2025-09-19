@@ -22,7 +22,7 @@ class TarjetaSerie extends Component {
         favorito.push(id);
         let seriesToString = JSON.stringify(favorito);
         localStorage.setItem("favs", seriesToString);
-
+        
         this.setState({ seleccionado: true });
     }
     sacarFavorito(id) {
