@@ -40,7 +40,7 @@ class Formulario extends Component {
                     placeholder="Buscar..."
                 />
                 <div>
-                    <label>
+                    <label className="subtitulo">
                         <input
                             type="radio"
                             name="tipo"
@@ -49,7 +49,7 @@ class Formulario extends Component {
                         />
                         Películas
                     </label>
-                    <label>
+                    <label className="subtitulo">
                         <input
                             type="radio"
                             name="tipo"

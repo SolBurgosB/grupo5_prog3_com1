@@ -1,16 +1,33 @@
 nav {
     display: grid;
     grid-template-columns: 1fr;
-    background-color: #eee;
+    background-color: #1c1c1c;
     border-radius: 4px;
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 .nav {
     margin: 0 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav-item {
+    margin: 20px
 }
 .nav a{
-    color: #444;
+    color: white;
     text-decoration: none;
+}
+ol, ul, li{
+    list-style-type: none;
+}
+.subtitulo{
+    color: white
 }
 .nav a:hover{
     font-weight: bold;
@@ -79,7 +96,9 @@ nav {
     height: 100px;
     overflow: hidden;
 }
-
+.logo{
+    width: 10%
+}
 
 .all-movies .single-card-movie {
     width: 15%;

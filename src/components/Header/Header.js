@@ -11,6 +11,7 @@ class Header extends Component {
     render() {
     return (
         <nav>
+            <img className={"logo"} src={"./images/logo.jpg"} alt={`Imagen del logo`} />
             <ul className="nav nav-tabs my-4">
                 <li className="nav-item">
                     <Link to={`/`}><p className="nav-link">Home</p></Link>
