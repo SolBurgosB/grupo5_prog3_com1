@@ -19,7 +19,8 @@ function Header() {
                 <li className="nav-item">
                     <Link to={`/favoritos`}><p className="nav-link">Favoritas</p></Link>
                 </li>
-                <Formulario filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)}/>
+                <Formulario filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)}
+                    filtrarSeries={(texto) => this.filtrarSeries(texto)}/>
             </ul>
         </nav>
     )

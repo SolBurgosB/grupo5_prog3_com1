@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import TodasSeries from "../../components/TodasSeries/TodasSeries";
-import Filtro from "../../components/Filtro/Filtro";
+import FiltroSeries from "../../components/FiltroSeries/FiltroSeries";
 
 class Series extends Component{
     constructor(props){
         super(props)
         this.state={
-            peliculas: [],
+            series: [],
             pedidoInicialCompleto: false,
             pagina: 1,
             backup:[],
@@ -28,7 +28,7 @@ class Series extends Component{
         .then((series)=>this.setState({series: this.state.series.concat(series.results), pagina: this.state.pagina+1}))
         .catch((error)=>console.log(error))
     }
-    filtrarPeliculas(texto){
+    filtrarSeries(texto){
         const filtrado=this.state.backup.filter((elm)=>elm.name.toLowerCase().includes(texto.toLowerCase()))
         this.setState({series: filtrado})
     }
@@ -36,7 +36,7 @@ class Series extends Component{
         return(
             <div> 
                 <h1>Series</h1>
-                <Filtro filtrarPeliculas={(texto)=>this.filtrarPeliculas(texto)} />
+                <FiltroSeries filtrarSeries={(texto)=>this.filtrarSeries(texto)} />
                 {this.state.pedidoInicialCompleto ? 
                 <div>
                     <TodasSeries series={this.state.series}/> 
