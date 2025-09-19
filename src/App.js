@@ -13,7 +13,7 @@ import Series from "./screens/Series/Series";
 function App() {
   return (
     <React.Fragment>
-      <Header/>
+      <Header />
       <Switch>
         <Route path="/" component={Home} exact={true} />
         <Route path="/peliculas/:id" component={Pelicula} />

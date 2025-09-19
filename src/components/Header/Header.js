@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import "./styles.css"
 import Formulario from '../Formulario/Formulario'
 
-function Header() {
+class Header extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+    render() {
     return (
         <nav>
             <ul className="nav nav-tabs my-4">
@@ -19,11 +24,11 @@ function Header() {
                 <li className="nav-item">
                     <Link to={`/favoritos`}><p className="nav-link">Favoritas</p></Link>
                 </li>
-                <Formulario filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)}
-                    filtrarSeries={(texto) => this.filtrarSeries(texto)}/>
+                <Formulario filtrarPeliculas = {(texto) => this.props.filtrarPeliculas(texto)}
+                    filtrarSeries={(texto) => this.props.filtrarSeries(texto)}/>
             </ul>
         </nav>
-    )
+    )}
 }
 
 export default Header

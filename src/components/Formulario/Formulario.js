@@ -35,7 +35,6 @@ class Formulario extends Component {
             <form className="search-form" action="/resultados" method="get" onSubmit={(evento) => this.controlarForm(evento)}>
                 <input
                     type="text"
-                    value=""
                     name="searchData"
                     onChange={(evento) => this.controlarInput(evento)}
                     placeholder="Buscar..."
