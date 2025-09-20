@@ -12,9 +12,9 @@ class SerieDetalle extends Component {
     return (
       <div className="character-card">
         <h2 className="alert alert-warning">{this.state.dataSeries.name}</h2>
-        <section class="row">
-          <img src={`https://image.tmdb.org/t/p/w342${this.state.dataSeries.poster_path}`} alt={`Imagen de ${this.state.dataSeries.name}`} />
-          <section class="col-md-6 info">
+        <section className="row">
+          <img src={`https://image.tmdb.org/t/p/w342${this.state.dataSeries.poster_path}`} className="col-md-6" alt={`Imagen de ${this.state.dataSeries.name}`} />
+          <section className="col-md-6 info">
             <h3>Descripción</h3>
             <p className="description">{this.state.dataSeries.overview}</p>
             <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.state.dataSeries.first_air_date}</p>

@@ -45,11 +45,12 @@ class TarjetaSerie extends Component {
     }
     render() {
         return (
-            <div className=''>
-                <img src={`https://image.tmdb.org/t/p/w342${this.state.dataSeries.poster_path}`} alt={`Imagen de ${this.state.dataSeries.name}`} />
-                <h2> {this.state.dataSeries.name}</h2>
-                <button onClick={() => this.seleccionar()} className="more">{this.state.textoBoton}</button>
-                {this.state.verMas ? <p>{this.state.dataSeries.overview}</p> : <p></p>}
+            <article className="single-card-tv">
+                <img src={`https://image.tmdb.org/t/p/w342${this.state.dataSeries.poster_path}`} className="card-img-top" alt={`Imagen de ${this.state.dataSeries.name}`} />
+            <div className='cardBody'>
+                <h2 className="card-title">{this.state.dataSeries.name}</h2>
+                <button onClick={() => this.seleccionar()} className="more btn btn-primary">{this.state.textoBoton}</button>
+                {this.state.verMas ? <p className="card-text">{this.state.dataSeries.overview}</p> : <p></p>}
                 <Link to={`/series/${this.state.dataSeries.id}`}><button>Ver detalle</button></Link>
                 {
                     this.state.seleccionado ?
@@ -58,6 +59,7 @@ class TarjetaSerie extends Component {
                         <button onClick={() => this.favorito(this.state.dataSeries.id)}>Favorito ☆</button>
                 }
             </div>
+            </article>
         )
     }
 };
