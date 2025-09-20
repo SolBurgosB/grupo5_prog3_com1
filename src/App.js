@@ -3,7 +3,7 @@ import Home from "./screens/Home/Home";
 import Pelicula from "./screens/Pelicula/Pelicula";
 import Peliculas from "./screens/Peliculas/Peliculas";
 import { Switch, Route } from "react-router-dom";
-import Favoritos from "./screens/PeliculasFav/PeliculasFav";
+import Favoritos from "./screens/Favoritos/Favoritos";
 import Header from "./components/Header/Header";
 import Resultados from "./screens/Resultados/Resultados";
 import Error404 from "./components/Error404/Error404";

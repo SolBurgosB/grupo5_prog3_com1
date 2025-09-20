@@ -8,8 +8,16 @@ class TarjetaSerie extends Component {
             dataSeries: props.series,
             verMas: false,
             textoBoton: "Ver Más",
+            seleccionado: false
         }
     };
+    componentDidMount() {
+        let serieTraida = localStorage.getItem("favs");
+        let favoritos = JSON.parse(serieTraida || "[]") ;
+        if (favoritos.includes(this.state.dataSeries.id)) {
+            this.setState({ seleccionado: true });
+        }
+    }
     seleccionar() {
         this.setState({
             verMas: !this.state.verMas,
@@ -18,7 +26,7 @@ class TarjetaSerie extends Component {
     };
     favorito(id) {
         let serieTraida = localStorage.getItem("favs");
-        let favorito = JSON.parse(serieTraida);
+        let favorito = JSON.parse(serieTraida || "[]");
         favorito.push(id);
         let seriesToString = JSON.stringify(favorito);
         localStorage.setItem("favs", seriesToString);
@@ -27,7 +35,7 @@ class TarjetaSerie extends Component {
     }
     sacarFavorito(id) {
         let serieTraida = localStorage.getItem("favs")
-        let favorito = JSON.parse(serieTraida)
+        let favorito = JSON.parse(serieTraida || "[]")
         if (favorito) {
             let nuevofavorito = favorito.filter((favId) => favId != id)
             let seriesToString = JSON.stringify(nuevofavorito)
