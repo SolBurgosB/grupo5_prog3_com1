@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
 class TarjetaPelicula extends Component {
     constructor(props) {
         super(props)
@@ -8,8 +9,17 @@ class TarjetaPelicula extends Component {
             dataPeliculas: props.peliculas,
             verMas: false,
             textoBoton: "Ver Más",
+            seleccionado: false
         }
     };
+    componentDidMount() {
+        let peliculaTraida = localStorage.getItem("fav");
+        let favorito = JSON.parse(peliculaTraida);
+        if (favorito.includes(this.state.dataPeliculas.id)) {
+            this.setState({ seleccionado: true });
+        }
+    }
+
     seleccionar() {
         this.setState({
             verMas: !this.state.verMas,
@@ -22,9 +32,9 @@ class TarjetaPelicula extends Component {
         favorito.push(id);
         let peliculasToString = JSON.stringify(favorito);
         localStorage.setItem("fav", peliculasToString);
-
         this.setState({ seleccionado: true });
     }
+
     sacarFavorito(id) {
         let peliculaTraida = localStorage.getItem("fav")
         let favorito = JSON.parse(peliculaTraida)
@@ -53,6 +63,5 @@ class TarjetaPelicula extends Component {
         )
     }
 };
-
 
 export default TarjetaPelicula;
