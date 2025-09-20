@@ -14,7 +14,7 @@ class TarjetaPelicula extends Component {
     };
     componentDidMount() {
         let peliculaTraida = localStorage.getItem("fav");
-        let favorito = JSON.parse(peliculaTraida) || "[]";
+        let favorito = JSON.parse(peliculaTraida || "[]") ;
         if (favorito.includes(this.state.dataPeliculas.id)) {
             this.setState({ seleccionado: true });
         }
@@ -28,7 +28,7 @@ class TarjetaPelicula extends Component {
     };
     favorito(id) {
         let peliculaTraida = localStorage.getItem("fav");
-        let favorito = JSON.parse(peliculaTraida) || "[]";
+        let favorito = JSON.parse(peliculaTraida || "[]") ;
         favorito.push(id);
         let peliculasToString = JSON.stringify(favorito);
         localStorage.setItem("fav", peliculasToString);
@@ -37,7 +37,7 @@ class TarjetaPelicula extends Component {
 
     sacarFavorito(id) {
         let peliculaTraida = localStorage.getItem("fav")
-        let favorito = JSON.parse(peliculaTraida)|| "[]";
+        let favorito = JSON.parse(peliculaTraida || "[]");
         if (favorito) {
             let nuevofavorito = favorito.filter((favId) => favId != id)
             let peliculasToString = JSON.stringify(nuevofavorito)
