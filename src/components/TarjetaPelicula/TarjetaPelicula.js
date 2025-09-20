@@ -49,7 +49,7 @@ class TarjetaPelicula extends Component {
         return (
             <article className="single-card-movie">
                 <img src={`https://image.tmdb.org/t/p/w342${this.state.dataPeliculas.poster_path}`} alt={`Imagen de ${this.state.dataPeliculas.title}`} className="card-img-top"/>
-                <div class="cardBody">
+                <div className="cardBody">
                 <h2  className="card-title"> {this.state.dataPeliculas.title}</h2>
                 <button onClick={() => this.seleccionar()} className="more btn btn-primary">{this.state.textoBoton}</button>
                 {this.state.verMas ? <p className='card-text'>{this.state.dataPeliculas.overview}</p> : <p></p>}

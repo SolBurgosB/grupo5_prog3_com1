@@ -12,7 +12,7 @@ class PeliculaDetalle extends Component {
     return (
       <div className="">
         <h2 className="alert alert-primary"> {this.state.dataPeliculas.title}</h2>
-        <section class="row">
+        <section className="row">
           <img src={`https://image.tmdb.org/t/p/w342${this.state.dataPeliculas.poster_path}`} alt={`Imagen de ${this.state.dataPeliculas.title}`} className="col-md-6" />
           <section className="col-md-6 info">
             <h3>Descripción</h3>
