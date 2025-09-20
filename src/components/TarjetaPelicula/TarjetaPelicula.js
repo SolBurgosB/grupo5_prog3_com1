@@ -47,12 +47,13 @@ class TarjetaPelicula extends Component {
     }
     render() {
         return (
-            <div className=''>
-                <img src={`https://image.tmdb.org/t/p/w342${this.state.dataPeliculas.poster_path}`} alt={`Imagen de ${this.state.dataPeliculas.title}`} />
-                <h2> {this.state.dataPeliculas.title}</h2>
-                <button onClick={() => this.seleccionar()} className="more">{this.state.textoBoton}</button>
+            <article className="single-card-movie">
+                <img src={`https://image.tmdb.org/t/p/w342${this.state.dataPeliculas.poster_path}`} alt={`Imagen de ${this.state.dataPeliculas.title}`} className="card-img-top"/>
+                <div class="cardBody">
+                <h2  className="card-title"> {this.state.dataPeliculas.title}</h2>
+                <button onClick={() => this.seleccionar()} className="more card-text">{this.state.textoBoton}</button>
                 {this.state.verMas ? <p>{this.state.dataPeliculas.overview}</p> : <p></p>}
-                <Link to={`/peliculas/${this.state.dataPeliculas.id}`}><button>Ver detalle</button></Link>
+                <Link to={`/peliculas/${this.state.dataPeliculas.id}`}><button className= "btn btn-primary">Ver detalle</button></Link>
                 {
                     this.state.seleccionado ?
                         <button onClick={() => this.sacarFavorito(this.state.dataPeliculas.id)}>Sacar Favorito ★</button>
@@ -60,6 +61,7 @@ class TarjetaPelicula extends Component {
                         <button onClick={() => this.favorito(this.state.dataPeliculas.id)}>Favorito ☆</button>
                 }
             </div>
+            </article>
         )
     }
 };
