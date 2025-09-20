@@ -17,7 +17,8 @@ class SerieDetalle extends Component {
           <section className="col-md-6 info">
             <h3>Descripción</h3>
             <p className="description">{this.state.dataSeries.overview}</p>
-            <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.state.dataSeries.first_air_date}</p>
+            <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno: </strong>{this.state.dataSeries.first_air_date}</p>
+            <p className="mt-0 mb-0"><strong>Género: </strong>{this.state.dataSeries.genres.name}</p>
             <p>{this.state.dataSeries.popularity}</p>
           </section>
         </section>
