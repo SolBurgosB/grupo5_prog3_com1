@@ -10,8 +10,8 @@ export default class Favoritos extends Component {
         }
     }
     componentDidMount() {
-        let peliculaTraida = localStorage.getItem("favs")
-        let favorito = JSON.parse(peliculaTraida)
+        let serieTraida = localStorage.getItem("favs")
+        let favorito = JSON.parse(serieTraida)
         let nuevos= []
         if (favorito != null) {
             console.log(favorito);
