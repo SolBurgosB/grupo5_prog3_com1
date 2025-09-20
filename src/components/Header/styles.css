@@ -6,7 +6,6 @@ nav {
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
     justify-content: space-between;
     align-items: center;
 }
