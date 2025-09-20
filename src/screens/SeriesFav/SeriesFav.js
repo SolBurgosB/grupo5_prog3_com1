@@ -15,7 +15,7 @@ export default class Favoritos extends Component {
         let nuevos= []
         if (favorito != null) {
             console.log(favorito);
-            favorito.map((fav) => {
+            favorito.map((favs) => {
                 fetch(`https://api.themoviedb.org/3/tv/${favs}?api_key=9b992146006f315e9afbc6413f499b4e`)
                     .then((res) => res.json())
                     .then((series) => {
