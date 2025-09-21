@@ -4,8 +4,8 @@ import "./styles.css"
 
 function TodasPeliculas(props){
   return (
-        <section className="card-container characters">
-            {props.peliculas.map((pelicula, idx)=> <TarjetaPelicula peliculas={pelicula} key={pelicula.title + idx}/>)}
+        <section className="row cards all-movies" id="movies">
+            {props.peliculas.map((pelicula, idx)=> <TarjetaPelicula peliculas={pelicula} key={pelicula.title + idx} className="single-card-movie"/>)}
         </section>
       );
     }

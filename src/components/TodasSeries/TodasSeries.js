@@ -4,8 +4,8 @@ import "./styles.css"
 
 function TodasSeries(props){
   return (
-        <section className="card-container characters">
-            {props.series.map((serie, idx)=> <TarjetaSerie series={serie} key={serie.name + idx}/>)}
+        <section className="row cards all-series" id="series">
+            {props.series.map((serie, idx)=> <TarjetaSerie series={serie} key={serie.name + idx} className="single-card-tv"/>)}
         </section>
       );
     }

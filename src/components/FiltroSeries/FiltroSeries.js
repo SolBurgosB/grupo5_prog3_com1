@@ -1,27 +1,27 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { withRouter } from "react-router-dom"; //porque es un componente donde quiero usar props de navegación
+import "./styles.css"
 
-
-class FiltroSeries extends Component{
-    constructor(props){
+class FiltroSeries extends Component {
+    constructor(props) {
         super(props)
-        this.state={
+        this.state = {
             busqueda: ""
         }
     }
-    controlarForm(evento){
+    controlarForm(evento) {
         evento.preventDefault()
     }
-    controlarInput(evento){
-        this.setState({busqueda: evento.target.value}, () => this.props.filtrarSeries(this.state.busqueda));
+    controlarInput(evento) {
+        this.setState({ busqueda: evento.target.value }, () => this.props.filtrarSeries(this.state.busqueda));
     }
 
 
-    render(){
-        return(
-        <form onSubmit={(evento)=> this.controlarForm(evento)}>
-            <input onChange={(evento)=>this.controlarInput(evento)} />
-        </form>
+    render() {
+        return (
+            <form onSubmit={(evento) => this.controlarForm(evento)} className="filter-form px-0 mb-3" action="" method="get">
+                <input onChange={(evento) => this.controlarInput(evento)} type="text" name="filter" id="" placeholder="Buscar dentro de la lista" />
+            </form>
         )
     }
 }

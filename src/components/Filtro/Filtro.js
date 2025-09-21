@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { withRouter } from "react-router-dom"; //porque es un componente donde quiero usar props de navegación
-
+import "./styles.css"
 
 class Filtro extends Component{
     constructor(props){
@@ -19,8 +19,8 @@ class Filtro extends Component{
 
     render(){
         return(
-        <form onSubmit={(evento)=> this.controlarForm(evento)}>
-            <input onChange={(evento)=>this.controlarInput(evento)} />
+        <form onSubmit={(evento)=> this.controlarForm(evento)}  className="filter-form px-0 mb-3" action="" method="get">
+            <input onChange={(evento)=>this.controlarInput(evento)} type="text" name="filter" id="" placeholder="Buscar dentro de la lista"/>
         </form>
         )
     }
