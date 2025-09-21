@@ -1,16 +1,38 @@
+body {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  }
+  
 nav {
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: #eee;
+    background-color: #1c1c1c;
     border-radius: 4px;
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 .nav {
     margin: 0 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.nav-item {
+    margin: 2%
 }
 .nav a{
-    color: #444;
+    color: white;
     text-decoration: none;
+}
+ol, ul, li{
+    list-style-type: none;
+}
+.subtitulo{
+    color: white
 }
 .nav a:hover{
     font-weight: bold;
@@ -42,11 +64,11 @@ nav {
     line-height: 1.5;
 }
 .cards {
-    padding: 0.75rem 1.25rem;
+
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start; 
     margin-bottom: 2%;
 }
 .cardBody {
@@ -55,13 +77,28 @@ nav {
 .single-card-people {
     width: 19%;
 }
+.detalle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .single-card-movie {
-    width: 24%;
+    width: 20%;
+    padding: 1%;
+    margin: 1%;
 }
 .single-card-playing {
     width: 15%;
 }
 #now-playing .card-text{
+    height: 100px;
+    overflow: hidden;
+}
+.single-card-tv {
+    width: 19%;
+}
+.tv-show .card-text{
     height: 100px;
     overflow: hidden;
 }
@@ -72,10 +109,13 @@ nav {
     height: 100px;
     overflow: hidden;
 }
-
-.all-movies .single-card-movie {
-    width: 15%;
+.logo{
+    width: 8%
 }
+.card-img-top{
+    width: 100%;
+}
+
 
 @media(min-width: 765px){
     nav {

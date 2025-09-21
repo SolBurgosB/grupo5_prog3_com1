@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { withRouter } from "react-router-dom"; //porque es un componente donde quiero usar props de navegación
-import "./styles.css"
+//import "./styles.css"
 
 class Filtro extends Component{
     constructor(props){
