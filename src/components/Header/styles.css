@@ -10,7 +10,7 @@ nav {
     border-radius: 4px;
     margin-bottom: 20px;
     display: flex;
-    flex-wrap: wrap;
+    padding: 10px;
     justify-content: space-between;
     align-items: center;
 }
@@ -19,10 +19,15 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
+  
 }
 .nav-item {
-    margin: 2%
+    margin: 1.5%
+}
+.searchData{
+    height: 50%;
+    width: 50%;
+    padding: 20%;
 }
 .nav a{
     color: white;
@@ -32,15 +37,16 @@ ol, ul, li{
     list-style-type: none;
 }
 .subtitulo{
-    color: white
+    color: white;
+    margin: 2%;
 }
 .nav a:hover{
     font-weight: bold;
 }
+
 .search-form, .filter-form {
     padding: .5rem 1rem;
-    display: grid;
-    grid-template-columns: 4fr 1fr;
+    display: flex;
     column-gap: 5px;
 }
 .filter-form {
@@ -104,12 +110,22 @@ ol, ul, li{
     overflow: hidden;
 }
 .logo{
-    width: 8%
+    width: 7%
 }
 .card-img-top{
     width: 100%;
 }
-
+button{
+    padding: 8px 14px;
+    background-color: #029b70;
+    color: #fff;
+    border: 2px solid #1c1c1c;
+    border-radius: 12px;   
+    margin: 2%;           
+  }
+  button:hover{
+    font-weight: bold;          
+  }
 
 @media(min-width: 765px){
     nav {
