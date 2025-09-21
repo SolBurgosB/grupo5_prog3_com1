@@ -18,9 +18,9 @@ class PeliculaDetalle extends Component {
           <section className="col-md-6 info">
             <h3>Descripción</h3>
             <p className="description">{this.state.dataPeliculas.overview}</p>
-            <p className="mt-0 mb-0" id="release-date"> <strong>Fecha de estreno:</strong> {this.state.dataPeliculas.release_date}</p>
-            <p className="mt-0 mb-0 length"><strong>Duración:</strong> {this.state.dataPeliculas.runtime}</p>
-            <p className="mt-0" id="votes"><strong>Puntuación:</strong> {this.state.dataPeliculas.popularity}</p>
+            <p className="mt-0 mb-0" id="release-date"> <strong>Fecha de estreno: </strong> {this.state.dataPeliculas.release_date}</p>
+            <p className="mt-0 mb-0 length"><strong>Duración: </strong> {this.state.dataPeliculas.runtime}</p>
+            <p className="mt-0" id="votes"><strong>Puntuación: </strong> {this.state.dataPeliculas.popularity}</p>
           </section>
         </section>
       </div>
