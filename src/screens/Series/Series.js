@@ -11,13 +11,14 @@ class Series extends Component{
             pagina: 1,
             backup:[],
             busqueda:"",
+            filtrar:[],
         }
     }
     componentDidMount(){
         fetch(`https://api.themoviedb.org/3/tv/popular?api_key=9b992146006f315e9afbc6413f499b4e`)
         .then((res)=>res.json())
         .then((series)=>{console.log(series);
-            this.setState({series: series.results, pedidoInicialCompleto: true, pagina: this.state.pagina +1, backup: series.results})
+            this.setState({series: series.results, pedidoInicialCompleto: true, pagina: this.state.pagina +1, backup: series.results, filtrar: series.results})
         }) 
         .catch((error)=>console.log(error))
         
@@ -25,11 +26,11 @@ class Series extends Component{
     cargarMas(){
         fetch(`https://api.themoviedb.org/3/tv/popular?api_key=9b992146006f315e9afbc6413f499b4e&page=${this.state.pagina}`)
         .then(res=>res.json())
-        .then((series)=>this.setState({series: this.state.series.concat(series.results), pagina: this.state.pagina+1}))
+        .then((series)=>this.setState({series: this.state.series.concat(series.results), pagina: this.state.pagina+1, filtrar: this.state.filtrar.concat(series.results)}))
         .catch((error)=>console.log(error))
     }
     filtrarSeries(texto){
-        const filtrado=this.state.series.filter((elm)=>elm.name.toLowerCase().includes(texto.toLowerCase()))
+        const filtrado=this.state.filtrar.filter((elm)=>elm.name.toLowerCase().includes(texto.toLowerCase()))
         this.setState({series: filtrado})
     }
     render(){
