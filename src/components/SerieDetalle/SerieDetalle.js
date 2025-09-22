@@ -9,6 +9,37 @@ class SerieDetalle extends Component {
       dataSeries: props.series,
     }
   }
+  componentDidMount() {
+    let serieTraida = localStorage.getItem("favs");
+    let favoritos = JSON.parse(serieTraida || "[]");
+    if (favoritos.includes(this.state.dataSeries.id)) {
+      this.setState({ seleccionado: true });
+    }
+  }
+  favorito(id) {
+    let serieTraida = localStorage.getItem("favs");
+    let favorito = JSON.parse(serieTraida || "[]");
+    favorito.push(id);
+    let seriesToString = JSON.stringify(favorito);
+    localStorage.setItem("favs", seriesToString);
+
+    this.setState({ seleccionado: true });
+  }
+  sacarFavorito(id) {
+    let serieTraida = localStorage.getItem("favs")
+    let favorito = JSON.parse(serieTraida || "[]")
+    if (favorito) {
+      let nuevofavorito = favorito.filter((favId) => favId != id)
+      let seriesToString = JSON.stringify(nuevofavorito)
+      localStorage.setItem("favs", seriesToString)
+    }
+    this.setState({ seleccionado: false })
+
+    if (this.props.quitar) {
+      this.props.quitar(id)
+    }
+
+  }
   render() {
     return (
       <div className="detalle">
@@ -19,8 +50,14 @@ class SerieDetalle extends Component {
             <h3>Descripción</h3>
             <p className="description">{this.state.dataSeries.overview}</p>
             <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno: </strong>{this.state.dataSeries.first_air_date}</p>
-            <p className="mt-0 mb-0"><strong>Género: </strong>{this.state.dataSeries.genres.map((genero)=><span>{genero.name}</span>)}</p> 
+            <p className="mt-0 mb-0"><strong>Género: </strong>{this.state.dataSeries.genres.map((genero) => <span>{genero.name}</span>)}</p>
             <p className="mt-0" id="votes"><strong>Puntuación: </strong>{this.state.dataSeries.vote_average}</p>
+            {
+              this.state.seleccionado ?
+                <button className="btn-primary" onClick={() => this.sacarFavorito(this.state.dataSeries.id)}>Sacar Favorito ★</button>
+                :
+                <button className="btn-primary" onClick={() => this.favorito(this.state.dataSeries.id)}>Favorito ☆</button>
+            }
           </section>
         </section>
       </div>
