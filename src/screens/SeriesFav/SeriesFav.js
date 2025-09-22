@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TodasSeries from '../../components/TodasSeries/TodasSeries'
+import TarjetaSerie from '../../components/TarjetaSerie/TarjetaSerie'
 
 
 export default class Favoritos extends Component {
@@ -27,9 +28,18 @@ export default class Favoritos extends Component {
         else {
             console.log(favorito)
         }}
+
+    quitarFavoritos(id) {
+        const seriesFiltradas = this.state.seriesfav.filter((serie)=>serie.id !==id)
+        this.setState({seriesfav: seriesFiltradas})
+    }
+
     render() {
         return (
-            <TodasSeries series={this.state.seriesfav}/>
+            <div>
+                {this.state.seriesfav.map((serie, idx) => <TarjetaSerie series={serie} key={serie.id + idx} quitar={() => this.quitarFavoritos(serie.id)} />)}
+            </div>
         )
     }
 }
+

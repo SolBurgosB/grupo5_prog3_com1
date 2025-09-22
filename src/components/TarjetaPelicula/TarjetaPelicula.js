@@ -14,7 +14,7 @@ class TarjetaPelicula extends Component {
     };
     componentDidMount() {
         let peliculaTraida = localStorage.getItem("fav");
-        let favorito = JSON.parse(peliculaTraida || "[]") ;
+        let favorito = JSON.parse(peliculaTraida || "[]");
         if (favorito.includes(this.state.dataPeliculas.id)) {
             this.setState({ seleccionado: true });
         }
@@ -28,7 +28,7 @@ class TarjetaPelicula extends Component {
     };
     favorito(id) {
         let peliculaTraida = localStorage.getItem("fav");
-        let favorito = JSON.parse(peliculaTraida || "[]") ;
+        let favorito = JSON.parse(peliculaTraida || "[]");
         favorito.push(id);
         let peliculasToString = JSON.stringify(favorito);
         localStorage.setItem("fav", peliculasToString);
@@ -45,25 +45,27 @@ class TarjetaPelicula extends Component {
         }
         this.setState({ seleccionado: false })
 
+        if (this.props.quitar) {
+            this.props.quitar(id)
+        }
 
-        
     }
     render() {
         return (
             <article className="single-card-movie">
-                <img src={`https://image.tmdb.org/t/p/w342${this.state.dataPeliculas.poster_path}`} alt={`Imagen de ${this.state.dataPeliculas.title}`} className="card-img-top"/>
+                <img src={`https://image.tmdb.org/t/p/w342${this.state.dataPeliculas.poster_path}`} alt={`Imagen de ${this.state.dataPeliculas.title}`} className="card-img-top" />
                 <div className="cardBody">
-                <h2  className="card-title"> {this.state.dataPeliculas.title}</h2>
-                <button onClick={() => this.seleccionar()} className="more btn btn-primary">{this.state.textoBoton}</button>
-                {this.state.verMas ? <p className='card-text'>{this.state.dataPeliculas.overview}</p> : <p></p>}
-                <Link to={`/peliculas/${this.state.dataPeliculas.id}`}><button className= "btn btn-primary">Ver detalle</button></Link>
-                {
-                    this.state.seleccionado ?
-                        <button onClick={() => this.sacarFavorito(this.state.dataPeliculas.id)}>Sacar Favorito ★</button>
-                        :
-                        <button onClick={() => this.favorito(this.state.dataPeliculas.id)}>Favorito ☆</button>
-                }
-            </div>
+                    <h2 className="card-title"> {this.state.dataPeliculas.title}</h2>
+                    <button onClick={() => this.seleccionar()} className="more btn btn-primary">{this.state.textoBoton}</button>
+                    {this.state.verMas ? <p className='card-text'>{this.state.dataPeliculas.overview}</p> : <p></p>}
+                    <Link to={`/peliculas/${this.state.dataPeliculas.id}`}><button className="btn btn-primary">Ver detalle</button></Link>
+                    {
+                        this.state.seleccionado ?
+                            <button onClick={() => this.sacarFavorito(this.state.dataPeliculas.id)}>Sacar Favorito ★</button>
+                            :
+                            <button onClick={() => this.favorito(this.state.dataPeliculas.id)}>Favorito ☆</button>
+                    }
+                </div>
             </article>
         )
     }
