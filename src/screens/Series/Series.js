@@ -41,7 +41,7 @@ class Series extends Component{
                 {this.state.pedidoInicialCompleto ? 
                 <div>
                     <TodasSeries series={this.state.series}/> 
-                    <button onClick={()=>this.cargarMas()}>Cargar más</button>
+                    <button className="btn-primary" onClick={()=>this.cargarMas()}>Cargar más</button>
                 </div>
                 : <h2>Cargando...</h2>}
             </div>

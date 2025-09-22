@@ -41,7 +41,7 @@ class Peliculas extends Component{
                 {this.state.pedidoInicialCompleto ? 
                 <div>
                     <TodasPeliculas peliculas={this.state.peliculas}/> 
-                    <button onClick={()=>this.cargarMas()}>Cargar más</button>
+                    <button className="btn-primary" onClick={()=>this.cargarMas()}>Cargar más</button>
                 </div>
                 : <h2>Cargando...</h2>}
             </div>
