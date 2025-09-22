@@ -1,6 +1,6 @@
 import React from 'react'
 import TarjetaPelicula from '../TarjetaPelicula/TarjetaPelicula'
-//import "./styles.css"
+import "./styles.css"
 
 function HomePeliculas(props) {
   return (

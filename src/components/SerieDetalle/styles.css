@@ -184,8 +184,62 @@ button:hover{
     text-align: center;
 }
 
-@media(min-width: 765px){
+@media(max-width: 765px){
     nav {
-        grid-template-columns: 4fr 3fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo{
+        width: 20%;
+        margin-bottom: 10px;
+    }
+
+    .nav-item {
+        margin: 10px 0; 
+    }
+
+    .single-card-movie,
+    .single-card-tv {
+        width: 45%; 
+    }
+}
+
+@media(max-width: 420px){
+    nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        width: 35%; 
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        margin: 8px 0;
+    }
+
+    .single-card-movie,
+    .single-card-tv {
+        width: 90%;
+    }
+
+    button {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 8px;
     }
 }

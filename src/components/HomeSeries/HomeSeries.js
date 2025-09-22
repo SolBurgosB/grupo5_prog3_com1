@@ -1,6 +1,6 @@
 import React from 'react'
 import TarjetaSerie from '../TarjetaSerie/TarjetaSerie'
-//import "./styles.css"
+import "./styles.css"
 
 function HomeSeries(props) {
   return (

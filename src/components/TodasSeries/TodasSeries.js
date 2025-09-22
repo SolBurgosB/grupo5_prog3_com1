@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import TarjetaSerie from "../TarjetaSerie/TarjetaSerie"
-//import "./styles.css"
+import "./styles.css"
 
 function TodasSeries(props){
   return (
