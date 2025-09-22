@@ -44,6 +44,9 @@ class TarjetaPelicula extends Component {
             localStorage.setItem("fav", peliculasToString)
         }
         this.setState({ seleccionado: false })
+
+
+        
     }
     render() {
         return (
