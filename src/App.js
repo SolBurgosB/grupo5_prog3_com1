@@ -9,6 +9,7 @@ import Resultados from "./screens/Resultados/Resultados";
 import Error404 from "./components/Error404/Error404";
 import Serie from "./screens/Serie/Serie";
 import Series from "./screens/Series/Series";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/resultados/:tipo/:busqueda" component={Resultados} />
         <Route component={Error404} />
       </Switch>
+      <Footer />
     </React.Fragment>
   );
 }

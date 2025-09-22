@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import "./styles.css"
+import "./styles.css"
 
 class TarjetaPelicula extends Component {
     constructor(props) {
@@ -61,9 +61,9 @@ class TarjetaPelicula extends Component {
                     <Link to={`/peliculas/${this.state.dataPeliculas.id}`}><button className="btn btn-primary">Ver detalle</button></Link>
                     {
                         this.state.seleccionado ?
-                            <button onClick={() => this.sacarFavorito(this.state.dataPeliculas.id)}>Sacar Favorito ★</button>
+                            <button className="btn-primary" onClick={() => this.sacarFavorito(this.state.dataPeliculas.id)}>Sacar Favorito ★</button>
                             :
-                            <button onClick={() => this.favorito(this.state.dataPeliculas.id)}>Favorito ☆</button>
+                            <button className="btn-primary" onClick={() => this.favorito(this.state.dataPeliculas.id)}>Favorito ☆</button>
                     }
                 </div>
             </article>

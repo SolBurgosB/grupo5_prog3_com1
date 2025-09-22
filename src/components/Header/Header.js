@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Link, withRouter } from 'react-router-dom/cjs/react-router-dom.min'
-import "./styles.css"
+// import "./styles.css"
 import Formulario from '../Formulario/Formulario'
 
 class Header extends Component {
