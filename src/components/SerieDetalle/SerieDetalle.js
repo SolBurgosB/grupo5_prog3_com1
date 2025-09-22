@@ -19,9 +19,8 @@ class SerieDetalle extends Component {
             <h3>Descripción</h3>
             <p className="description">{this.state.dataSeries.overview}</p>
             <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno: </strong>{this.state.dataSeries.first_air_date}</p>
-            <p className="mt-0 mb-0"><strong>Género: </strong>{this.state.dataSeries.genres.name}</p>
-            <p>{this.state.dataSeries.popularity}</p>
-            {this.state.dataSeries.genres.map((genero)=><p>{genero.name}</p>)}
+            <p className="mt-0 mb-0"><strong>Género: </strong>{this.state.dataSeries.genres.map((genero)=><span>{genero.name}</span>)}</p> 
+            <p className="mt-0" id="votes"><strong>Puntuación: </strong>{this.state.dataSeries.vote_average}</p>
           </section>
         </section>
       </div>
