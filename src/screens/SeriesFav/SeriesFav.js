@@ -37,6 +37,7 @@ export default class Favoritos extends Component {
     render() {
         return (
             <div>
+                <h2>Series Favoritas</h2>
                 {this.state.seriesfav.map((serie, idx) => <TarjetaSerie series={serie} key={serie.id + idx} quitar={() => this.quitarFavoritos(serie.id)} />)}
             </div>
         )

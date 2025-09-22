@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import "./styles.css"
+import "./styles.css"
 
 class TarjetaSerie extends Component {
     constructor(props) {
@@ -59,12 +59,12 @@ class TarjetaSerie extends Component {
                     <h2 className="card-title">{this.state.dataSeries.name}</h2>
                     <button onClick={() => this.seleccionar()} className="more btn btn-primary">{this.state.textoBoton}</button>
                     {this.state.verMas ? <p className="card-text">{this.state.dataSeries.overview}</p> : <p></p>}
-                    <Link to={`/series/${this.state.dataSeries.id}`}><button>Ver detalle</button></Link>
+                    <Link to={`/series/${this.state.dataSeries.id}`}><button className="btn-primary">Ver detalle</button></Link>
                     {
                         this.state.seleccionado ?
-                            <button onClick={() => this.sacarFavorito(this.state.dataSeries.id)}>Sacar Favorito ★</button>
+                            <button className="btn-primary" onClick={() => this.sacarFavorito(this.state.dataSeries.id)}>Sacar Favorito ★</button>
                             :
-                            <button onClick={() => this.favorito(this.state.dataSeries.id)}>Favorito ☆</button>
+                            <button className="btn-primary" onClick={() => this.favorito(this.state.dataSeries.id)}>Favorito ☆</button>
                     }
                 </div>
             </article>

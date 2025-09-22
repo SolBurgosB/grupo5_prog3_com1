@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import TodasPeliculas from '../../components/TodasPeliculas/TodasPeliculas'
 import TarjetaPelicula from '../../components/TarjetaPelicula/TarjetaPelicula'
 
-
 export default class Favoritos extends Component {
     constructor(props) {
         super(props)
@@ -41,6 +40,7 @@ export default class Favoritos extends Component {
     render() {
         return (
             <div>
+                <h2>Películas Favoritas</h2>
                 {this.state.peliculasfav.map((pelicula, idx) => <TarjetaPelicula peliculas={pelicula} key={pelicula.id + idx} quitar={() => this.quitarFavoritos(pelicula.id)} />)}
             </div>
         )

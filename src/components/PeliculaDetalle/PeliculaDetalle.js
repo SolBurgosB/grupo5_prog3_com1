@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-//import "./styles.css"
+import "./styles.css"
 
 class PeliculaDetalle extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class PeliculaDetalle extends Component {
       <div className="detalle">
         <h2 className="alert alert-primary"> {this.state.dataPeliculas.title}</h2>
         <section className="row detalle">
-          <img src={`https://image.tmdb.org/t/p/w342${this.state.dataPeliculas.poster_path}`} alt={`Imagen de ${this.state.dataPeliculas.title}`} className="col-md-6" />
+          <img src={`https://image.tmdb.org/t/p/w342${this.state.dataPeliculas.poster_path}`} alt={`Imagen de ${this.state.dataPeliculas.title}`} className="imgpelicula col-md-6" />
           <section className="col-md-6 info">
             <h3>Descripción</h3>
             <p className="description">{this.state.dataPeliculas.overview}</p>
