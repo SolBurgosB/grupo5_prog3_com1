@@ -3,9 +3,9 @@ import "./styles.css"
 
 function Error404() {
   return (
-    <div>
+    <div className='divError'>
         <h1>Error 404</h1>
-        <img src={`./images/Error.jpg`} alt={"Imagen de error"}/>
+        <img className="logoError" src={`./images/Error.jpg`} alt={"Imagen de error"}/>
     </div>
   )
 }
