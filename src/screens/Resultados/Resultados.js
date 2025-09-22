@@ -36,22 +36,27 @@ class Resultados extends Component {
     }
 
     render() {
-        const tipo = this.props.match.params.tipo
-        if (this.state.resultados.length === 0) {
-            return <h2>No se encontraron resultados para: {this.props.match.params.busqueda}</h2>
-        }
-        else {
-            return (
-                <div>
-                    {tipo === "tv"
-                        ? <div><h2>Resultados de la serie: {this.props.match.params.busqueda}</h2><TodasSeries series={this.state.resultados} /></div>
-                        : <div><h2>Resultados de la película: {this.props.match.params.busqueda}</h2><TodasPeliculas peliculas={this.state.resultados} /></div>
-                    }
-                </div>
+            const tipo = this.props.match.params.tipo
+            return this.state.pedidoInicialCompleto ? (
+                this.state.resultados.length === 0 ? (
+                    <h2>No se encontraron resultados para: {this.props.match.params.busqueda}</h2>
+                ) : (
+                    <div>
+                        {tipo === "tv"
+                            ? <div>
+                                <h2>Resultados de la serie: {this.props.match.params.busqueda}</h2>
+                                <TodasSeries series={this.state.resultados} />
+                              </div>
+                            : <div>
+                                <h2>Resultados de la película: {this.props.match.params.busqueda}</h2>
+                                <TodasPeliculas peliculas={this.state.resultados} />
+                              </div>
+                        }
+                    </div>
+                )
+            ) : (
+                <h2>Cargando...</h2>
             )
         }
-
     }
-
-}
 export default Resultados

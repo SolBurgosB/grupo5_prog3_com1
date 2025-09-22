@@ -8,6 +8,7 @@ export default class Favoritos extends Component {
 
         this.state = {
             peliculasfav: [],
+            pedidoInicialCompleto: false
         }
     }
 
@@ -22,7 +23,7 @@ export default class Favoritos extends Component {
                     .then((res) => res.json())
                     .then((peliculas) => {
                         nuevos.push(peliculas)
-                        this.setState({ peliculasfav: nuevos })
+                        this.setState({ peliculasfav: nuevos, pedidoInicialCompleto: true })
                     })
                     .catch((error) => console.log(error))
             })
@@ -39,10 +40,18 @@ export default class Favoritos extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Películas Favoritas</h2>
-                {this.state.peliculasfav.map((pelicula, idx) => <TarjetaPelicula peliculas={pelicula} key={pelicula.id + idx} quitar={() => this.quitarFavoritos(pelicula.id)} />)}
-            </div>
+            
+                this.state.pedidoInicialCompleto ?
+                    <div>
+                        <div>
+                            <h2>Películas Favoritas</h2>
+                            {this.state.peliculasfav.map((pelicula, idx) => <TarjetaPelicula peliculas={pelicula} key={pelicula.id + idx} quitar={() => this.quitarFavoritos(pelicula.id)} />)}
+                        </div>
+                    </div>
+                    :
+                    <h2>Cargando...</h2>
+            
+
         )
     }
 }
